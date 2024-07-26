@@ -1,7 +1,7 @@
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
+import Discord from "next-auth/providers/discord"
 import Resend from "next-auth/providers/resend"
  
 
@@ -14,10 +14,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             apiKey: process.env.AUTH_RESEND_KEY,
             from: "onboarding@resend.dev"
         }),
-        Google({
+        Discord({
             clientId: process.env.DISCORD_CLIENT_ID,
             clientSecret: process.env.DISCORD_CLIENT_SECRET
-
         })
   ],
 })
