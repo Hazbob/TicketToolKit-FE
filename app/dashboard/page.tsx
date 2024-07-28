@@ -1,5 +1,7 @@
 import { auth } from "@/auth";
+import { Button } from "@/Components/ui/button";
 import DashCard from "@/Components/ui/Dashboard/DashCard";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Dashboard(){
@@ -14,7 +16,7 @@ export default async function Dashboard(){
                 <DashCard cardTitle="Unsold Inventory" cardContent=""/>
                 <DashCard cardTitle="Inventory Value" cardContent=""/>
             </header>
-
+            <Link href="inventory">Inventory</Link>
         </div>
     )
 }

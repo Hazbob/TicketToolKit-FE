@@ -5,7 +5,7 @@ import Discord from "next-auth/providers/discord"
 import Resend from "next-auth/providers/resend"
  
 
-const prisma = new PrismaClient()
+export const prisma = new PrismaClient()
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),

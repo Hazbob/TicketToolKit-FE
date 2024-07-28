@@ -13,8 +13,9 @@ interface Props {
 }
 
 export default async function DashCard({ cardTitle, cardContent }: Props){
-    const session = await auth()
-    console.log(session)
+    
+    const session = await auth();
+
     return (
         <Card className="w-full">
             <CardHeader>
@@ -24,6 +25,5 @@ export default async function DashCard({ cardTitle, cardContent }: Props){
                 <p>{cardContent}</p>
             </CardContent>
         </Card>
-
     )
 }
