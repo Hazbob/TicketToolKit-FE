@@ -21,6 +21,8 @@ model User {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Ticket Ticket[]
 }
  
 model Account {
@@ -76,4 +78,18 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@id([userId, credentialID])
+}
+
+model Ticket {
+  TicketId      String @id @default(uuid()) @unique
+  EventName     String
+  userId        String
+  EventDate     DateTime?
+  PurchaseDate  DateTime
+  PurchasePrice Int
+  ViagogoLink String?
+  PricePerTicket  Int
+  Quantity  Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isSold Boolean
 }

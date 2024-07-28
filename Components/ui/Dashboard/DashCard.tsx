@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import {
     Card,
     CardContent,
@@ -11,7 +12,10 @@ interface Props {
     cardContent: string;
 }
 
-export default function DashCard({ cardTitle, cardContent }: Props){
+export default async function DashCard({ cardTitle, cardContent }: Props){
+    
+    const session = await auth();
+
     return (
         <Card className="w-full">
             <CardHeader>
@@ -21,6 +25,5 @@ export default function DashCard({ cardTitle, cardContent }: Props){
                 <p>{cardContent}</p>
             </CardContent>
         </Card>
-
     )
 }
